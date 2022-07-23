@@ -1,0 +1,46 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.1.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
+- repo: https://github.com/pycqa/isort
+  rev: 5.9.3
+  hooks:
+  - id: isort
+    name: isort (python)
+- repo: https://github.com/psf/black
+  rev: 21.8b0
+  hooks:
+  - id: black
+    language_version: python3
+    args: [--extend-exclude, notebooks/]
+- repo: https://github.com/pycqa/flake8
+  rev: 3.9.2
+  hooks:
+  - id: flake8
+    args: [--exclude=*.ipynb, --ignore=E501]
+- repo: https://github.com/nbQA-dev/nbQA
+  rev: 0.13.1
+  hooks:
+  - id: nbqa-isort
+    args: [--nbqa-mutate, --profile=black]
+  - id: nbqa-black
+    args: [--nbqa-mutate]
+  - id: nbqa-flake8
+    args: [--nbqa-mutate, '--ignore=E501,E402,W503']
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.3.9
+  hooks:
+  - id: nbstripout
+- repo: https://github.com/worldquant-university/nb-hooks
+  rev: afcb4493c33cc54744261f0efb6084d820b39653
+  hooks:
+  - id: remove-blank-cells
+  - id: add-colophon
