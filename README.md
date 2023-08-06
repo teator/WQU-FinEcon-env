@@ -1,4 +1,4 @@
-# WQU MSc Financial Econometrics
+# WQU MSc Financial Engineering
 
 ## Financial Econometrics
 
